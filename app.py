@@ -18,8 +18,8 @@ def upload_file():
     client_ip = request.remote_addr
     allowed_ip = '20.218.226.24'
 
-    #if client_ip != allowed_ip:
-       # return abort(403, description="Access Denied: Your IP is not whitelisted.")
+    if client_ip != allowed_ip:
+        return abort(403, description="Access Denied: Your IP is not whitelisted.")
 
     if request.method == 'POST':
         if 'file' not in request.files:
